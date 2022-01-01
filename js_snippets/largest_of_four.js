@@ -1,6 +1,7 @@
 function largestOfFour(arr) {
+    const copyArr = [...arr];
     let largest = [];
-    for (let elem of arr) {
+    for (let elem of copyArr) {
       elem.sort(function(a, b){return b-a});
       largest.push(elem[0])
     }
