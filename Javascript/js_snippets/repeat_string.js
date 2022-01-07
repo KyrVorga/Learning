@@ -5,6 +5,6 @@ function repeatStringNumTimes(str, num) {
         newString += str;
     }
     return newString;
-  }
+}
 
-  repeatStringNumTimes("abc", 3);
+repeatStringNumTimes("abc", 3);

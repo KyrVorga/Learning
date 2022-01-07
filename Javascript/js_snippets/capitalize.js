@@ -4,10 +4,10 @@ function titleCaseWrong(str) {
         elem.slice(0).toUpperCase().concat(elem)
         elem = elem.replace(/./, elem.charAt(0).toUpperCase());
     }
-    return arr.join(' ');
-  }
-  
-  titleCaseWrong("I'm a little tea pot");
+return arr.join(' ');
+}
+
+titleCaseWrong("I'm a little tea pot");
 
 // Above code doesnt work because of trying to use for...of
 
