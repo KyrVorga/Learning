@@ -20,3 +20,21 @@ function getIndexToIns(arr, num) {
 }
 
 getIndexToIns([2, 5, 10], 15)
+
+
+// Simplified version, didnt realize return len would suffice
+
+function getIndexToIns(arr, num) {
+    let copyArr = [...arr];
+    const len = copyArr.length
+    copyArr.sort(function(a, b){return a-b});
+
+
+    for (let i = 0; i < len; i++) {
+        if (num <= copyArr[i]) {
+            return i;
+        }
+    }
+    return len;
+}
+getIndexToIns([2, 5, 10], 15);
