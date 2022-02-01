@@ -8,3 +8,14 @@ function checker(word) {
 }
 
 checker('level');
+
+function palindrome(word) {
+	let reversed = word.split('').reverse().join('');
+  if (word === reversed) {
+  	return true;
+  } else {
+  return false;
+  }
+}
+
+palindrome('level');
