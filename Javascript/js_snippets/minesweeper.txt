@@ -1,0 +1,121 @@
+[
+  [0, 1, 0, 0],
+  [0, 0, 1, 0],
+  [0, 1, 0, 1],
+  [1, 1, 0, 0],
+];
+Into
+[
+  [1, x, 2, 1],
+  [2, 3, x, 2],
+  [3, x, 4, x],
+  [x, x, 3, 1],
+];
+
+copy array
+loop over first sub-array
+find any 1's and change to x
+iterate over each element if x increment each number around it
+  iterate over array
+    if i === 'x'
+      array[j][i-1] && array[j][i+1]    increment and ->
+      array[j-1][i] && array[j+1][i] && array[j-1][i-1] && array[j+1][i+1]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      bad code
+
+      //   for (let j = 0; j < array.length; j++) {
+  //     for (let i = 0; i < array[j].length; i++) {
+  //       console.log(array[j][i]);
+  //       if (array[j][i] === "x") {
+  //           // if its the first array
+  //         if (j === 0) {
+  //           if (Number.isInteger(array[j][i - 1])) {
+  //             array[j][i - 1]++;
+  //           }
+
+  //           if (Number.isInteger(array[j][i - 1])) {
+  //             array[j][i + 1]++;
+  //           }
+
+  //           if (Number.isInteger(array[j + 1][i])) {
+  //             array[j + 1][i]++;
+  //           }
+
+  //           if (Number.isInteger(array[j + 1][i + 1])) {
+  //             array[j + 1][i + 1]++;
+  //           }
+
+  //           if (Number.isInteger(array[j + 1][i - 1])) {
+  //             array[j + 1][i - 1]++;
+  //           }
+  //           // else if its the last array
+  //         } else if (j == 3) {
+  //           if (Number.isInteger(array[j][i - 1])) {
+  //             array[j][i - 1]++;
+  //           }
+
+  //           if (Number.isInteger(array[j][i - 1])) {
+  //             array[j][i + 1]++;
+  //           }
+
+  //           if (Number.isInteger(array[j - 1][i])) {
+  //             array[j - 1][i]++;
+  //           }
+
+  //           if (Number.isInteger(array[j - 1][i + 1])) {
+  //             array[j - 1][i + 1]++;
+  //           }
+
+  //           if (Number.isInteger(array[j - 1][i - 1])) {
+  //             array[j - 1][i - 1]++;
+  //           }
+  //           // else its in the middle
+  //         } else {
+
+  //           if (Number.isInteger(array[j][i - 1])) {
+  //             array[j][i - 1]++;
+  //           }
+
+  //           if (Number.isInteger(array[j][i - 1])) {
+  //             array[j][i + 1]++;
+  //           }
+
+  //           if (Number.isInteger(array[j - 1][i])) {
+  //             array[j - 1][i]++;
+  //           }
+
+  //           if (Number.isInteger(array[j - 1][i + 1])) {
+  //             array[j - 1][i + 1]++;
+  //           }
+
+  //           if (Number.isInteger(array[j - 1][i - 1])) {
+  //             array[j - 1][i - 1]++;
+  //           }
+  //           if (Number.isInteger(array[j + 1][i])) {
+  //             array[j + 1][i]++;
+  //           }
+
+  //           if (Number.isInteger(array[j + 1][i + 1])) {
+  //             array[j + 1][i + 1]++;
+  //           }
+
+  //           if (Number.isInteger(array[j + 1][i - 1])) {
+  //             array[j + 1][i - 1]++;
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
