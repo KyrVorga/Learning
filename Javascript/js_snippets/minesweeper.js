@@ -12,60 +12,6 @@
 //   [x, x, 3, 1],
 // ];
 
-// function checker(x, y, array) {
-//   //location is equal to j and i to see if x is on the edge of the grid
-//   if (x == 0 && y == 0) {
-//     // console.log("top left corner");
-//     array[j][i + 1]++;
-//     array[j + 1][i + 1]++;
-//     array[j + 1][i]++;
-//   } else if (x == 0 && y == 3) {
-//     // console.log("top right");
-//     array[j][i - 1]++;
-//     array[j + 1][i]++;
-//     array[j + 1][i - 1]++;
-//   } else if ((x == 0 && y == 1) || (x == 0 && y == 2)) {
-//     // console.log("top center");
-//     array[j][i - 1]++;
-//     array[j][i + 1]++;
-//     array[j + 1][i + 1]++;
-//     array[j + 1][i]++;
-//     array[j + 1][i - 1]++;
-//   } else if ((x == 1 && y == 0) || (x == 2 && y == 0)) {
-//     // console.log("left center");
-//     array[j - 1][i]++;
-//     array[j - 1][i + 1]++;
-//     array[j][i + 1]++;
-//     array[j + 1][i + 1]++;
-//     array[j + 1][i]++;
-//   } else if ((x == 1 && y == 3) || (x == 2 && y == 3)) {
-//     // console.log("right center");
-//     array[j][i - 1]++;
-//     array[j - 1][i - 1]++;
-//     array[j - 1][i]++;
-//     array[j + 1][i]++;
-//     array[j + 1][i - 1]++;
-//   } else if (x == 3 && y == 0) {
-//     // console.log("bottom left");
-//     array[j - 1][i]++;
-//     array[j - 1][i + 1]++;
-//     array[j][i + 1]++;
-//   } else if (x == 3 && y == 3) {
-//     // console.log("bottom right");
-//     array[j][i - 1]++;
-//     array[j - 1][i - 1]++;
-//     array[j - 1][i]++;
-//   } else if ((x == 3 && y == 1) || (x == 3 && y == 2)) {
-//     // console.log("bottom center");
-//     array[j][i - 1]++;
-//     array[j - 1][i - 1]++;
-//     array[j - 1][i]++;
-//     array[j - 1][i + 1]++;
-//     array[j][i + 1]++;
-//   }
-//   return array;
-// }
-
 function minesweeper(input) {
   // convert to x's
   array = [...input];
