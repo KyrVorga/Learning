@@ -1,191 +1,103 @@
-const array = [
-  [0, 10, 0, 0],
-  [0, 0, 10, 0],
-  [0, 10, 0, 10],
-  [10, 10, 0, 0],
+const options = [
+  [1, 0], //bottom 0
+  [0, 1], //right 1
+  [1, -1], //bottom left 2
+  [1, 1], //bottom right 3
+  [-1, 0], //top 4
+  [0, -1], //left 5
+  [-1, -1], //top left 6
+  [-1, 1], //top right 7
 ];
 
-function calulateMines(array) {
-  // copy = [...array];
-  // console.log(copy);
+// convert to filter or map or something
+function chooseOps(choices, indexes) {
+  let operators = [];
+  for (let i = 0; i < choices.length; i++) {
+    for (let j = 0; j < indexes.length; j++) {
+      if (i == indexes[j]) {
+        operators.push(choices[i]);
+      }
+    }
+  }
+  return operators;
+}
 
-  // let mines = [];
+function operate(array, coords, operators) {
+  for (i = 0; i < operators.length; i++) {
+    let a, b;
+    [a, b] = coords;
+    a += operators[i][0];
+    b += operators[i][1];
+    array[a][b]++;
+  }
+}
 
-  // for (let j = 0; j < copy.length; j++) {
-  //   for (let i = 0; i < copy[j].length; i++) {
-  //     if (copy[j][i] >= 10) {
-  //       mines.push([j, i]);
-  //     }
-  //   }
-  // }
+function minesweeper(input) {
+  array = [...input];
   for (let j = 0; j < array.length; j++) {
     for (let i = 0; i < array[j].length; i++) {
-      if (array[j][i] >= 10) {
-        if (array[j] == 0) {
-          // check if in left column
-          if (array[i] == 0) {
-            array[j][i + 1]++;
-            array[j + 1][i + 1]++;
-            array[j + 1][i]++;
-          }
-          // check if in right column
-          else if (array[i] == 3) {
-            array[j][i - 1]++;
-            array[j + 1][i]++;
-            array[j + 1][i - 1]++;
-          } else {
-            array[j][i - 1]++;
-            array[j][i + 1]++;
-            array[j + 1][i + 1]++;
-            array[j + 1][i]++;
-            array[j + 1][i - 1]++;
-          }
-
-          // check if in bottom row
-        } else if (array[j] == 3) {
-          // check if in left column
-          if (array[i] == 0) {
-            array[j - 1][i]++;
-            array[j - 1][i + 1]++;
-            array[j][i + 1]++;
-          }
-          // check if in right column
-          else if (array[i] == 3) {
-            array[j][i - 1]++;
-            array[j - 1][i - 1]++;
-            array[j - 1][i]++;
-          } else {
-            array[j][i - 1]++;
-            array[j - 1][i - 1]++;
-            array[j - 1][i]++;
-            array[j - 1][i + 1]++;
-            array[j][i + 1]++;
-          }
-
-          // check if in left column
-        } else if (array[i] == 0) {
-          array[j - 1][i]++;
-          array[j - 1][i + 1]++;
-          array[j][i + 1]++;
-          array[j + 1][i + 1]++;
-          array[j + 1][i]++;
-          // check if in right column
-        } else if (array[i] == 3) {
-          array[j][i - 1]++;
-          array[j - 1][i - 1]++;
-          array[j - 1][i]++;
-          array[j + 1][i]++;
-          array[j + 1][i - 1]++;
-          // otherwise its in the center
+      if (array[j][i] === 1) {
+        array[j][i] = 10;
+      }
+    }
+  }
+  // iterate over each element looking for 10's
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array[i].length; j++) {
+      if (array[i][j] >= 10) {
+        if (i == 0 && j == 0) {
+          operate(array, [i, j], chooseOps(options, [0, 1, 3])); // top left
+        } else if (i == 0 && j == array[j].length - 1) {
+          operate(array, [i, j], chooseOps(options, [0, 2, 5])); //top right
+        } else if ((i == 0 && j == 1) || (i == 0 && j == 2)) {
+          operate(array, [i, j], chooseOps(options, [0, 1, 2, 3, 5])); // top
+        } else if ((i == 1 && j == 0) || (i == 2 && j == 0)) {
+          operate(array, [i, j], chooseOps(options, [0, 1, 3, 4, 6])); // left
+        } else if (
+          (i == 1 && j == array[j].length - 1) ||
+          (i == 2 && j == array[j].length - 1)
+        ) {
+          operate(array, [i, j], chooseOps(options, [0, 2, 4, 5, 6])); // right
+        } else if (i == array.length - 1 && j == 0) {
+          operate(array, [i, j], chooseOps(options, [1, 4, 7])); // bottom left
+        } else if (i == array.length - 1 && j == array[j].length - 1) {
+          operate(array, [i, j], chooseOps(options, [4, 5, 6])); // bottom right
+        } else if (
+          (i == array.length - 1 && j == 1) ||
+          (i == array.length - 1 && j == 2)
+        ) {
+          operate(array, [i, j], chooseOps(options, [1, 4, 5, 6, 7])); // bottom
         } else {
-          array[j][i - 1]++;
-          array[j][i + 1]++;
-          array[j + 1][i + 1]++;
-          array[j + 1][i]++;
-          array[j + 1][i - 1]++;
-          array[j - 1][i - 1]++;
-          array[j - 1][i]++;
-          array[j - 1][i + 1]++;
+          operate(array, [i, j], chooseOps(options, [0, 1, 2, 3, 4, 5, 6, 7])); // center
         }
       }
     }
   }
-  // console.log(mines);
-  // for (let elem of mines) {
-  //   // check if in top row
-  //   if (array[j] == 0) {
-  //     // check if in left column
-  //     if (array[i] == 0) {
-  //       array[j][i + 1]++;
-  //       array[j + 1][i + 1]++;
-  //       array[j + 1][i]++;
-  //     }
-  //     // check if in right column
-  //     else if (array[i] == 3) {
-  //       array[j][i - 1]++;
-  //       array[j + 1][i]++;
-  //       array[j + 1][i - 1]++;
-  //     } else {
-  //       array[j][i - 1]++;
-  //       array[j][i + 1]++;
-  //       array[j + 1][i + 1]++;
-  //       array[j + 1][i]++;
-  //       array[j + 1][i - 1]++;
-  //     }
 
-  //     // check if in bottom row
-  //   } else if (elem[0] == 3) {
-  //     // check if in left column
-  //     if (elem[1] == 0) {
-  //       array[j - 1][i]++;
-  //       array[j - 1][i + 1]++;
-  //       array[j][i + 1]++;
-  //     }
-  //     // check if in right column
-  //     else if (elem[1] == 3) {
-  //       array[j][i - 1]++;
-  //       array[j - 1][i - 1]++;
-  //       array[j - 1][i]++;
-  //     } else {
-  //       array[j][i - 1]++;
-  //       array[j - 1][i - 1]++;
-  //       array[j - 1][i]++;
-  //       array[j - 1][i + 1]++;
-  //       array[j][i + 1]++;
-  //     }
-
-  //     // check if in left column
-  //   } else if (elem[1] == 0) {
-  //     array[j - 1][i]++;
-  //     array[j - 1][i + 1]++;
-  //     array[j][i + 1]++;
-  //     array[j + 1][i + 1]++;
-  //     array[j + 1][i]++;
-  //     // check if in right column
-  //   } else if (elem[1] == 3) {
-  //     array[j][i - 1]++;
-  //     array[j - 1][i - 1]++;
-  //     array[j - 1][i]++;
-  //     array[j + 1][i]++;
-  //     array[j + 1][i - 1]++;
-  //     // otherwise its in the center
-  //   } else {
-  //     array[j][i - 1]++;
-  //     array[j][i + 1]++;
-  //     array[j + 1][i + 1]++;
-  //     array[j + 1][i]++;
-  //     array[j + 1][i - 1]++;
-  //     array[j - 1][i - 1]++;
-  //     array[j - 1][i]++;
-  //     array[j - 1][i + 1]++;
-  //   }
-  // }
-
-  // return copy;
+  for (let j = 0; j < array.length; j++) {
+    for (let i = 0; i < array[j].length; i++) {
+      if (array[j][i] >= 10) {
+        array[j][i] = "x";
+      }
+    }
+  }
+  return array;
 }
 
-calulateMines(array);
-
-// for (let elem of copy) {
-//   if (elem[0] == 0) {
-//     if (elem[1] == 0) {
-//       console.log("top left corner");
-//     } else if (elem[1] == 3) {
-//       console.log("top right");
-//     } else {
-//       console.log("top center");
-//     }
-//   } else if (elem[0] == 3) {
-//     if (elem[1] == 0) {
-//       console.log("bottom left");
-//     } else if (elem[1] == 3) {
-//       console.log("bottom right");
-//     } else {
-//       console.log("bottom center");
-//     }
-//   } else if (elem[1] == 0) {
-//     console.log("left center");
-//   } else if (elem[1] == 3) {
-//     console.log("right center");
-//   }
-// }
+console.log(
+  minesweeper([
+    [0, 1, 0, 0],
+    [0, 0, 1, 0],
+    [0, 1, 0, 1],
+    [1, 1, 0, 0],
+  ])
+);
+console.log(
+  minesweeper([
+    [0, 1, 0, 0, 1],
+    [0, 0, 1, 0, 0],
+    [0, 1, 0, 1, 0],
+    [1, 1, 0, 0, 0],
+    [0, 0, 0, 1, 1],
+  ])
+);
