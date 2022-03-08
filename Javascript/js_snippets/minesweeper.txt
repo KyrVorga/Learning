@@ -25,11 +25,34 @@ iterate over each element if x increment each number around it
 
 
 
+array[j][i - 1]++;
+array[j][i + 1]++;
+array[j + 1][i]++;
+array[j + 1][i - 1]++;
+array[j + 1][i + 1]++;
+array[j - 1][i]++;
+array[j - 1][i - 1]++;
+array[j - 1][i + 1]++;
 
 
+array[row][col - 1]++;
+array[row][col + 1]++;
+array[row + 1][col]++;
+array[row + 1][col - 1]++;
+array[row + 1][col + 1]++;
+array[row - 1][col]++;
+array[row - 1][col - 1]++;
+array[row - 1][col + 1]++;
 
 
-
+- 1  ++
++ 1  ++
++ 1  ++
++ 1 - 1  ++
++ 1 + 1  ++
+- 1  ++
+- 1 - 1  ++
+- 1 + 1  ++
 
 
 
@@ -119,3 +142,157 @@ iterate over each element if x increment each number around it
   //       }
   //     }
   //   }
+
+
+
+  // potentially more robust
+for (let elem of copy) {
+  if (elem[0] == 0) {
+    if (elem[1] == 0) {
+      //   console.log("top left corner");
+    } else if (elem[1] == 3) {
+      //   console.log("top right");
+    } else {
+      //   console.log("top center");
+    }
+  } else if (elem[0] == 3) {
+    if (elem[1] == 0) {
+      //   console.log("bottom left");
+    } else if (elem[1] == 3) {
+      //   console.log("bottom right");
+    } else {
+      //   console.log("bottom center");
+    }
+  } else if (elem[1] == 0) {
+    // console.log("left center");
+  } else if (elem[1] == 3) {
+    // console.log("right center");
+  }
+}
+
+//actually works, has hardcoded values tho
+for (let j = 0; j < array.length; j++) {
+  for (let i = 0; i < array[j].length; i++) {
+    if (array[j][i] >= 10) {
+      if (j == 0 && i == 0) {
+        // console.log("top left corner");
+      } else if (j == 0 && i == 3) {
+        // console.log("top right");
+      } else if ((j == 0 && i == 1) || (j == 0 && i == 2)) {
+        // console.log("top center");
+      } else if ((j == 1 && i == 0) || (j == 2 && i == 0)) {
+        // console.log("left center");
+      } else if ((j == 1 && i == 3) || (j == 2 && i == 3)) {
+        // console.log("right center");
+      } else if (j == 3 && i == 0) {
+        // console.log("bottom left");
+      } else if (j == 3 && i == 3) {
+        // console.log("bottom right");
+      } else if ((j == 3 && i == 1) || (j == 3 && i == 2)) {
+        // console.log("bottom center");
+      } else {
+      }
+    }
+  }
+}
+
+// array[j][i - 1]++; left
+// array[j][i + 1]++; right
+// array[j + 1][i]++; bottom
+// array[j + 1][i - 1]++; bottom left
+// array[j + 1][i + 1]++; bottom right
+// array[j - 1][i]++; top
+// array[j - 1][i - 1]++; top left
+// array[j - 1][i + 1]++; top right
+
+
+    [1, 0], //bottom
+    [0, 1], //right
+    [1, -1], //bottom left
+    [1, 1], //bottom right
+    [-1, 0], //top
+    [0, -1], //left
+    [-1, -1], //top left
+    [-1, 1], //top right
+
+
+
+
+
+
+
+  const center = [
+    [1, 0],
+    [0, 1],
+    [1, -1],
+    [1, 1],
+    [-1, 0],
+    [0, -1],
+    [-1, -1],
+    [-1, 1],
+  ];
+  const left = [
+    [0, 1],
+    [1, -1],
+    [-1, 0],
+    [0, -1],
+    [-1, 1],
+  ];
+  const right = [
+    [1, 0],
+    [1, -1],
+    [1, 1],
+    [0, -1],
+    [-1, -1],
+  ];
+  const bottom = [
+    [1, 0],
+    [0, 1],
+    [0, -1],
+    [-1, -1],
+    [-1, 1],
+  ];
+  const bottomleft = [
+    [0, 1],
+    [0, -1],
+    [-1, -1],
+    [-1, 1],
+  ];
+  const bottomright = [
+    [1, 0],
+    [0, -1],
+    [-1, -1],
+    [-1, 1],
+  ];
+  const top = [
+    [1, 0],
+    [0, 1],
+    [1, -1],
+    [1, 1],
+    [-1, 0],
+  ];
+  const topleft = [
+    [0, 1],
+    [1, -1],
+    [-1, 0],
+  ];
+  const topright = [
+    [1, 0],
+    [1, -1],
+    [1, 1],
+  ];
+
+
+
+
+
+
+
+
+
+
+
+
+take the locations of the mines and iterate over them
+then for each mine iterate through the operators on each mine coord
+increment each new coord thats been operated on
