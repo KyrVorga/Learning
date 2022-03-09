@@ -16,5 +16,8 @@
   },
   "homepage": "https://github.com/Hakugin370/Javascript-Learning#readme",
   "keywords": [],
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "nodemon": "^2.0.15"
+  }
 }
