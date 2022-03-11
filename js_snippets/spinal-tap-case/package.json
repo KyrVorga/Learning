@@ -1,10 +1,10 @@
 {
-  "name": "test",
+  "name": "spinal-tap-case",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon spinal-tap-case.js"
   },
   "keywords": [],
   "author": "",
