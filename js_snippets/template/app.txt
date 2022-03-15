@@ -1,0 +1,18 @@
+/* ANCHOR Title
+
+Description
+
+*/
+
+/* NOTE planning area
+
+Psuedo-code / Description / Explanation
+
+*/
+
+/* NOTE Realizations
+
+Mistakes / Corrections / Concepts Learnt
+
+*/
+console.log(
