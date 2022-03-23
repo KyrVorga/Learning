@@ -4,35 +4,27 @@ Make a function that looks through an array of objects (first argument) and retu
 For example, if the first argument is [{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], and the second argument is { last: "Capulet" }, then you must return the third object from the array (the first argument), because it contains the name and its value, that was passed on as the second argument.
 */
 
-/* NOTE planning area
+/* NOTE Planning Area / Psuedo-code / Description / Explanation
 
-Psuedo-code / Description / Explanation
+iterate over collection
+for key in source
+  check if collection[n] has key
+
 
 */
 
-/* NOTE Realizations
+/* NOTE Realizations / Mistakes / Corrections / Concepts Learnt
 
-Mistakes / Corrections / Concepts Learnt
+
 
 */
 function whatIsInAName(collection, source) {
-  const arr = [];
+  let keys = Object.keys(source);
 
-  let newArr = collection.filter(
-    (collection, source) =>
-      collection.first === source.first || collection.last === source.last
+  return collection.filter((elem) =>
+    keys.every((key) => elem.hasOwnProperty(key) && elem[key] == source[key])
   );
-  return newArr;
 }
-
-whatIsInAName(
-  [
-    { first: "Romeo", last: "Montague" },
-    { first: "Mercutio", last: null },
-    { first: "Tybalt", last: "Capulet" },
-  ],
-  { last: "Capulet" }
-);
 
 console.log(
   whatIsInAName(
@@ -45,36 +37,36 @@ console.log(
   )
 ); // should return [{ first: "Tybalt", last: "Capulet" }].
 
-console.log(
-  whatIsInAName([{ apple: 1 }, { apple: 1 }, { apple: 1, bat: 2 }], {
-    apple: 1,
-  })
-); // should return [{ "apple": 1 }, { "apple": 1 }, { "apple": 1, "bat": 2 }].
+// console.log(
+//   whatIsInAName([{ apple: 1 }, { apple: 1 }, { apple: 1, bat: 2 }], {
+//     apple: 1,
+//   })
+// ); // should return [{ "apple": 1 }, { "apple": 1 }, { "apple": 1, "bat": 2 }].
 
-console.log(
-  whatIsInAName(
-    [{ apple: 1, bat: 2 }, { bat: 2 }, { apple: 1, bat: 2, cookie: 2 }],
-    { apple: 1, bat: 2 }
-  )
-); // should return [{ "apple": 1, "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }].
+// console.log(
+//   whatIsInAName(
+//     [{ apple: 1, bat: 2 }, { bat: 2 }, { apple: 1, bat: 2, cookie: 2 }],
+//     { apple: 1, bat: 2 }
+//   )
+// ); // should return [{ "apple": 1, "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }].
 
-console.log(
-  whatIsInAName(
-    [{ apple: 1, bat: 2 }, { apple: 1 }, { apple: 1, bat: 2, cookie: 2 }],
-    { apple: 1, cookie: 2 }
-  )
-); // should return [{ "apple": 1, "bat": 2, "cookie": 2 }].
+// console.log(
+//   whatIsInAName(
+//     [{ apple: 1, bat: 2 }, { apple: 1 }, { apple: 1, bat: 2, cookie: 2 }],
+//     { apple: 1, cookie: 2 }
+//   )
+// ); // should return [{ "apple": 1, "bat": 2, "cookie": 2 }].
 
-console.log(
-  whatIsInAName(
-    [
-      { apple: 1, bat: 2 },
-      { apple: 1 },
-      { apple: 1, bat: 2, cookie: 2 },
-      { bat: 2 },
-    ],
-    { apple: 1, bat: 2 }
-  )
-); // should return [{ "apple": 1, "bat": 2 }, { "apple": 1, "bat": 2, "cookie":2 }].
+// console.log(
+//   whatIsInAName(
+//     [
+//       { apple: 1, bat: 2 },
+//       { apple: 1 },
+//       { apple: 1, bat: 2, cookie: 2 },
+//       { bat: 2 },
+//     ],
+//     { apple: 1, bat: 2 }
+//   )
+// ); // should return [{ "apple": 1, "bat": 2 }, { "apple": 1, "bat": 2, "cookie":2 }].
 
-console.log(whatIsInAName([{ a: 1, b: 2, c: 3 }], { a: 1, b: 9999, c: 3 })); // should return []
+// console.log(whatIsInAName([{ a: 1, b: 2, c: 3 }], { a: 1, b: 9999, c: 3 })); // should return []

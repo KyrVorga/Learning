@@ -2,7 +2,7 @@ function whatIsInAName(collection, source) {
   const arr = [];
 
   let newArr = collection.filter((item) => item == source);
-
+  console.log(newArr);
   return newArr;
 }
 

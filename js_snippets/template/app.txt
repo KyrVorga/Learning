@@ -1,18 +1,19 @@
 /* ANCHOR Title
+Description:
 
-Description
-
-*/
-
-/* NOTE planning area
-
-Psuedo-code / Description / Explanation
 
 */
 
-/* NOTE Realizations
+/* NOTE Planning Area / Psuedo-code / Description / Explanation
 
-Mistakes / Corrections / Concepts Learnt
+
 
 */
+
+/* NOTE Realizations / Mistakes / Corrections / Concepts Learnt
+
+
+
+*/
+
 console.log(
