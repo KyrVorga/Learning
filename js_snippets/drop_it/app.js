@@ -22,7 +22,19 @@ Then return the rest of the array once the condition is satisfied, otherwise, ar
 */
 
 function dropElements(arr, func) {
-  return arr;
+  let newArr = [];
+  let flag = true;
+  let i = 0;
+  do {
+    if (func(arr[i]) == true) {
+      // console.log(arr.slice(i));
+      newArr = arr.slice(i);
+      flag = false;
+    }
+    i++;
+  } while (flag == true);
+  // console.log(newArr);
+  return newArr;
 }
 
 console.log(
@@ -37,26 +49,26 @@ console.log(
   })
 ); // should return [1, 0, 1].
 
-console.log(
-  dropElements([1, 2, 3], function (n) {
-    return n > 0;
-  })
-); // should return [1, 2, 3].
+// console.log(
+//   dropElements([1, 2, 3], function (n) {
+//     return n > 0;
+//   })
+// ); // should return [1, 2, 3].
 
-console.log(
-  dropElements([1, 2, 3, 4], function (n) {
-    return n > 5;
-  })
-); // should return [].
+// console.log(
+//   dropElements([1, 2, 3, 4], function (n) {
+//     return n > 5;
+//   })
+// ); // should return [].
 
-console.log(
-  dropElements([1, 2, 3, 7, 4], function (n) {
-    return n > 3;
-  })
-); // should return [7, 4].
+// console.log(
+//   dropElements([1, 2, 3, 7, 4], function (n) {
+//     return n > 3;
+//   })
+// ); // should return [7, 4].
 
-console.log(
-  dropElements([1, 2, 3, 9, 2], function (n) {
-    return n > 2;
-  })
-); // should return [3, 9, 2]
+// console.log(
+//   dropElements([1, 2, 3, 9, 2], function (n) {
+//     return n > 2;
+//   })
+// ); // should return [3, 9, 2]
