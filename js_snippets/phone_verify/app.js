@@ -50,7 +50,21 @@ For this challenge you will be presented with a string such as 800-692-7753 or 8
 // return reversed
 
 function telephoneCheck(str) {
-  const regex = /^\d{4}[./-]\d{2}[./-]\d{4}$/;
+  const patterns = [
+    /[0-9]+-[0-9]+-[0-9]+/,
+    /\([0-9]+\)[0-9]+-[0-9]+/,
+    /\([0-9]+\)\s[0-9]+-[0-9]+/,
+    /[0-9]+\s[0-9]+\s[0-9]+/,
+    /[0-9]+/,
+    /1\s[0-9]+\s[0-9]+\s[0-9]+/,
+  ];
+  for (let i = 0; i < patterns.length; i++) {
+    console.log(patterns[1].test(str));
+    // if (str.search(patterns[i]) === -1) {
+    //   return false;
+    // }
+  }
+  return true;
 }
 
 console.log(telephoneCheck("555-555-5555")); // should return a boolean.
