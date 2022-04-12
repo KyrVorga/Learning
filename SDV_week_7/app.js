@@ -27,34 +27,34 @@
 
 // console.log(str);
 
-const check = (str1, str2) => str1.length === str2.length;
+// const check = (str1, str2) => str1.length === str2.length;
 
-console.log(check("hey", "yay"));
+// console.log(check("hey", "yay"));
 
-let newArr = [];
-const findMax = (arr) => {
-  arr.forEach((element) => {
-    let maxNum = element[0];
-    element.forEach((elem) => {
-      if (elem > maxNum) {
-        maxNum = elem;
-      }
-    });
-    newArr.push(maxNum);
-  });
-};
-console.log(newArr);
+// let newArr = [];
+// const findMax = (arr) => {
+//   arr.forEach((element) => {
+//     let maxNum = element[0];
+//     element.forEach((elem) => {
+//       if (elem > maxNum) {
+//         maxNum = elem;
+//       }
+//     });
+//     newArr.push(maxNum);
+//   });
+// };
+// console.log(newArr);
 
-function findMaxnumbers(arr) {
-  let newArr = [];
-  for (let i = 0; i < arr.length; i++) {
-    let maxNumber = arr[i][0];
-    for (let j = 0; j < arr[i].length; j++) {
-      if (arr[i][j] > maxNumber) {
-        maxNumber = arr[i][j];
-      }
-    }
-    newArr.push(maxNumber);
-  }
-  return newArr;
-}
+// function findMaxnumbers(arr) {
+//   let newArr = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     let maxNumber = arr[i][0];
+//     for (let j = 0; j < arr[i].length; j++) {
+//       if (arr[i][j] > maxNumber) {
+//         maxNumber = arr[i][j];
+//       }
+//     }
+//     newArr.push(maxNumber);
+//   }
+//   return newArr;
+// }
