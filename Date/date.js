@@ -1,38 +1,3 @@
-/* ANCHOR Assessment One - Calendar App
-Description: 
-  • First Requirement (30 marks)
-  Design a class called Date. The class should store a date in three integers: month, day, and year. 
-  There should be member functions to print the date in the following formats: 12/25/10, December 25, 2010, 25 December 2010.
-  Input Validation: Do not accept values for the day greater than 31 or less than 1. Do not accept values for the month greater
-  than 12 or less than 1.
-
-  • Second Requirement (35 marks)
-  The Date class version should have the following overloaded operators:
-  o ++ Prefix and postfix increment operators. These operators should increment the object’s day member.
-  o -- Prefix and postfix decrement operators. These operators should decrement the object’s day member.
-  o - Subtraction operator. If one Date object is subtracted from another, the operator should give the number of
-  days between the two dates. For example, if April 10, 2010 is subtracted from April 18, 2010, the result will be 8.
-
-  • Third Requirement (35 marks)
-  Demonstrate the class’s capabilities in a program using JavaScript. The class should detect the following conditions and
-  handle them accordingly:
-  o When a date is set to the last day of the month and incremented, it should become the first day of the following
-  month.
-  o When a date is set to December 31 and incremented, it should become January 1 of the following year.
-  o When a day is set to the first day of the month and decremented, it should become the last day of the previous
-  month.
-  o When a date is set to January 1 and decremented, it should become December 31 of the previous year.
-  Demonstrate the class’s capabilities in a program using JavaScript.
-*/
-
-/* NOTE Planning Area / Psuedo-code / Description / Explanation
-
-*/
-
-/* NOTE Realizations / Mistakes / Corrections / Concepts Learnt
-
-*/
-
 class Date {
   constructor(date) {
     this.monthNames = {
@@ -207,8 +172,3 @@ console.log(date5.subtract("1/1/2023"));
 const date6 = new Date("12th of May 2021");
 console.log(date6.printDates());
 console.log(date6.subtract("5 6 2022"));
-
-// const date7 = new Date(23, 6, 2022)
-
-// this.day = day
-// // ...
