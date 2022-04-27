@@ -1,16 +1,16 @@
 function minesweeper(array) {
-  // copy contents to new grid
   grid = [...array];
   const options = [
-    [1, 0], //bottom 0
-    [0, 1], //right 1
-    [1, -1], //bottom left 2
-    [1, 1], //bottom right 3
-    [-1, 0], //top 4
-    [0, -1], //left 5
-    [-1, -1], //top left 6
-    [-1, 1], //top right 7
+    [1, 0], //bottom
+    [0, 1], //right
+    [1, -1], //bottom left
+    [1, 1], //bottom right
+    [-1, 0], //top
+    [0, -1], //left
+    [-1, -1], //top left
+    [-1, 1], //top right
   ];
+
   // converts a into b (first used to change 1's into 10's, then to change anything above 10 into an x)
   const convert = (a, b) => {
     for (row = 0; row < grid.length; row++) {
@@ -64,13 +64,7 @@ function surroundingCells(mines, options) {
   }
   return cells;
 }
-/*
-generate an array of the locations of the mines [0,1],[1,3]... etc
-for each element in the grid
-    for each mine location generate an array of what the surroding cells indexes would be
-        check if current elements indexes match any of the generated ones
 
-*/
 console.log(
   minesweeper([
     [0, 1, 0, 0],

@@ -1,6 +1,10 @@
 class MyDate {
   constructor(date) {
     this.date = new Date(date);
+    // i decided to throw an error here so that it stops execution and doesnt run the other method calls, it also removes the need for error checking in each method
+    if (this.date == "Invalid Date") {
+      throw new Error("Error, invalid input");
+    }
     this.splitDate();
   }
   // creates the day,month and year properties, as well as updates them
@@ -26,15 +30,11 @@ class MyDate {
       "November",
       "December",
     ];
-    if (this.date == "Invalid Date") {
-      return "Error, invalid input";
-    } else {
-      // change this back to one line and dont let prettier fix it
-      let format1 = `${(this.month += 1)}/${this.day}/${this.year}`;
-      let format2 = `${months[this.month - 1]} ${this.day}, ${this.year}`;
-      let format3 = `${this.day} ${months[this.month - 1]} ${this.year}`;
-      return `${format1}\n${format2}\n${format3}`;
-    }
+    // change this back to one line and dont let prettier fix it
+    let format1 = `${(this.month += 1)}/${this.day}/${this.year}`;
+    let format2 = `${months[this.month - 1]} ${this.day}, ${this.year}`;
+    let format3 = `${this.day} ${months[this.month - 1]} ${this.year}`;
+    return `${format1}\n${format2}\n${format3}`;
   }
 
   // increments the this.date property and then calls splitDate() to update the day,month and year properties
@@ -51,9 +51,7 @@ class MyDate {
 
   // checks if both dates are invalid, then returns the absolute difference of the two dates (rounded because.. well Javascript..)
   subtract(newDate) {
-    if (this.date == "Invalid Date") {
-      return "Error, invalid input";
-    } else if (new Date(newDate) == "Invalid Date") {
+    if (new Date(newDate) == "Invalid Date") {
       return "Error, second date is invalid";
     } else {
       return Math.round(
@@ -66,7 +64,7 @@ class MyDate {
 // ANCHOR Input cases
 
 //start of year test
-const date = new MyDate("1/1/2023");
+const date = new MyDate("12/1/2023");
 console.log(date.printDates());
 date.decrement();
 console.log(date.printDates());
@@ -101,6 +99,14 @@ date4.decrement();
 console.log(date4.printDates());
 console.log(date4.subtract("4/25/22"));
 
+/*
+list of valid input formats
+month day year
+month-day-year
+month/day/year
+// any mix of seperators will work
+day can be written first only if the month is written as text
+*/
 // Invalid inputs
 
 // day first

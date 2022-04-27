@@ -218,48 +218,118 @@
 
 //     console.log(test.January[2]);
 
-class Date {
-  constructor(day, month, year) {
-    this.day = day;
-    this.month = month;
-    this.year = year;
-  }
+// class Date {
+//   constructor(day, month, year) {
+//     this.day = day;
+//     this.month = month;
+//     this.year = year;
+//   }
 
-  formats() {
-    return `${this.day}/${this.month.text}/${this.year}`;
-  }
+//   formats() {
+//     return `${this.day}/${this.month}/${this.year}`;
+//   }
 
-  increment() {
-    if (this.day >= 31) {
-      if (this.month == 12) {
-        this.month = 1;
-        this.year += 1;
-      } else {
-        this.month += 1;
-      }
-      return (this.day = 1);
-    } else {
-      return (this.day += 1);
+//   increment() {
+//     if (this.day >= 31) {
+//       if (this.month == 12) {
+//         this.month = 1;
+//         this.year += 1;
+//       } else {
+//         this.month += 1;
+//       }
+//       this.day = 1;
+//     } else {
+//       this.day += 1;
+//     }
+//   }
+
+//   increment2() {
+//     if (this.day >= 31 && this.month == 12) {
+//       this.month = 1;
+//       this.year += 1;
+//       this.day = 1;
+//     } else if (this.day >= 31 && this.month != 12) {
+//       this.day = 1;
+//       this.month += 1;
+//     } else {
+//       this.day += 1;
+//     }
+//   }
+// }
+
+// const date = new Date(31, 12, 2023);
+// date.increment();
+// console.log(date.formats());
+
+// const date1 = new Date(28, 2, 2023);
+// date1.increment();
+// console.log(date1.formats());
+
+// const date2 = new Date(31, 5, 2023);
+// date2.increment();
+// console.log(date2.formats());
+// My oop demonstration code for A1
+
+// let dogName = "Dan";
+// let dogColour = "Brown and Black";
+// let dogBreed = "German Shepard";
+// let dogAge = 10;
+
+// function dogInfo(name, colour, breed, age) {
+//   return `My dog's name is ${name}, it is a ${colour} ${breed}, it is ${age} years old.`;
+// }
+
+// console.log(dogInfo(dogName, dogColour, dogBreed, dogAge));
+
+// // Versus
+
+// class Dog {
+//   constructor(name, colour, breed, age) {
+//     this.name = name;
+//     this.colour = colour;
+//     this.breed = breed;
+//     this.age = age;
+//   }
+
+//   info() {
+//     return `My dog's name is ${this.name}, it is a ${this.colour} ${this.breed}, it is ${this.age} years old.`;
+//   }
+// }
+// const myDog = new Dog("Dan", "Brown and Black", "German Shepard", 10);
+// console.log(myDog.info());
+
+// if (this.day == 28 && this.month == 2) {
+
+// }
+
+// function fizzBuzz() {
+//   let newArr = [];
+//   for (i = 1; i <= 100; i++) {
+//     if (i % 3 == 0 && i % 5 == 0) {
+//       newArr.push("FizzBuzz");
+//     } else if (i % 5 == 0) {
+//       newArr.push("Buzz");
+//     } else if (i % 3 == 0) {
+//       newArr.push("Fizz");
+//     } else {
+//       newArr.push(i);
+//     }
+//   }
+//   console.log(newArr);
+//   return newArr;
+// }
+// fizzBuzz();
+
+let array = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
+
+for (let elem of array) {
+  elem.map((sub) => {
+    if (sub > 5) {
     }
-  }
+  });
 }
-
-const date = new Date(20, 10, 2023);
-
-console.log(date.increment());
-console.log(date.formats());
-
-// const months = [
-//     "January",
-//     "Febuary",
-//     "March",
-//     "April",
-//     "May",
-//     "June",
-//     "July",
-//     "August",
-//     "September",
-//     "October",
-//     "November",
-//     "December",
-//   ];
+console.log(array);
