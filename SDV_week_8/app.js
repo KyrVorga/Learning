@@ -182,88 +182,11 @@
 //   },
 // ]
 
-// const object1 = {
-//   January: { num: 1, days: 31 },
-//   Febuary: { num: 2, days: 28 },
-//   March: { num: 3, days: 31 },
-//   April: { num: 4, days: 30 },
-//   May: { num: 5, days: 31 },
-//   June: { num: 6, days: 30 },
-//   July: { num: 7, days: 31 },
-//   August: { num: 8, days: 31 },
-//   September: { num: 9, days: 30 },
-//   October: { num: 10, days: 31 },
-//   November: { num: 11, days: 30 },
-//   December: { num: 12, days: 31 },
-// };
-
-// const Names = {
-//   January: [1, 31],
-//   Febuary: [2, 28],
-//   March: [3, 31],
-//   April: [4, 30],
-//   May: [5, 31],
-//   June: [6, 30],
-//   July: [7, 31],
-//   August: [8, 31],
-//   September: [9, 30],
-//   October: [10, 31],
-//   November: [11, 30],
-//   December: [12, 31],
-// };
-
 // const test = {
 //       "January": ['Monday',[], 'Tuesday','etc..']
 // };
 
 //     console.log(test.January[2]);
-
-// class Date {
-//   constructor(day, month, year) {
-//     this.day = day;
-//     this.month = month;
-//     this.year = year;
-//   }
-
-//   formats() {
-//     return `${this.day}/${this.month}/${this.year}`;
-//   }
-
-//   increment() {
-//     if (this.day >= 31) {
-//       if (this.month == 12) {
-//         this.month = 1;
-//         this.year += 1;
-//       } else {
-//         this.month += 1;
-//       }
-//       this.day = 1;
-//     } else {
-//       this.day += 1;
-//     }
-//   }
-
-//   increment2() {
-//     if (this.day >= 31 && this.month == 12) {
-//       this.month = 1;
-//       this.year += 1;
-//       this.day = 1;
-//     } else if (this.day >= 31 && this.month != 12) {
-//       this.day = 1;
-//       this.month += 1;
-//     } else {
-//       this.day += 1;
-//     }
-//   }
-// }
-
-// const date = new Date(31, 12, 2023);
-// date.increment();
-// console.log(date.formats());
-
-// const date1 = new Date(28, 2, 2023);
-// date1.increment();
-// console.log(date1.formats());
 
 // const date2 = new Date(31, 5, 2023);
 // date2.increment();
@@ -295,6 +218,7 @@
 //     return `My dog's name is ${this.name}, it is a ${this.colour} ${this.breed}, it is ${this.age} years old.`;
 //   }
 // }
+
 // const myDog = new Dog("Dan", "Brown and Black", "German Shepard", 10);
 // console.log(myDog.info());
 
@@ -320,16 +244,74 @@
 // }
 // fizzBuzz();
 
-let array = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9],
-];
+// let array = [
+//   [1, 2, 3],
+//   [4, 5, 6],
+//   [7, 8, 9],
+// ];
 
-for (let elem of array) {
-  elem.map((sub) => {
-    if (sub > 5) {
+// for (let elem of array) {
+//   elem.map((sub) => {
+//     if (sub > 5) {
+//     }
+//   });
+// }
+// console.log(array);
+
+// ANCHOR
+class Date {
+  constructor(day, month, year) {
+    this.day = day;
+    this.month = month;
+    this.year = year;
+    this.months = [
+      "January",
+      "Febuary",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    this.days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+    // this.text = this.months[month - 1];
+    this.maxDay = this.days[month - 1];
+    // console.log(this.text);
+    // console.log(this.maxDay);
+  }
+
+  formats() {
+    return `${this.day}/${this.month}/${this.year}`;
+  }
+
+  increment() {
+    if (this.day >= 31 && this.month == 12) {
+      this.month = 1;
+      ++this.year1;
+      this.day = 1;
+    } else if (this.day >= 31 && this.month != 12) {
+      this.day = 1;
+      ++this.month;
+    } else {
+      ++this.day;
     }
-  });
+  }
 }
-console.log(array);
+
+const date = new Date(31, 12, 2023);
+date.increment();
+console.log(date.formats());
+
+const date1 = new Date(28, 2, 2023);
+date1.increment();
+console.log(date1.formats());
+
+const date2 = new Date(31, 11, 2023);
+date2.increment();
+console.log(date2.formats());
