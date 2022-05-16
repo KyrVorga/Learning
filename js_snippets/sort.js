@@ -16,7 +16,7 @@ function sorter(arr) {
 }
 
 const sorter = (arr) => {
-  return arr.sort((a, b) => b[1] - a[1]);
+  return arr.sort((a, b) => b - a);
 };
 
 numbers.sort(function (a, b) {
