@@ -1,0 +1,23 @@
+{
+  "name": "sdv_week_3",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon ./src/app.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hakugin370/Javascript-Learning.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Hakugin370/Javascript-Learning/issues"
+  },
+  "homepage": "https://github.com/Hakugin370/Javascript-Learning#readme",
+  "keywords": [],
+  "description": "",
+  "dependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
