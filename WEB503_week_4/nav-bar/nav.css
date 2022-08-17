@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Lato", sans-serif;
+	margin: 0%;
+	transition: transform 0.3s ease;
+}
+
+body.show-nav {
+	/* Width of Nav bar */
+	transform: translateX(200px);
+}
+
+nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 200px;
+	height: 100vh;
+	background-color: rgb(43, 43, 43);
+	border-right: 2px solid rgba(red, green, blue, alpha);
+	color: #fff;
+	/* overflow: auto;
+	transition: transform 0.3s ease; */
+}
+
+nav .logo {
+	font-size: 1.5em;
+	font-weight: bold;
+	text-align: center;
+	padding: 30px;
+}
+
+nav .logo img {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+}
+
+nav ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+nav ul li {
+	padding: 10px;
+	border-bottom: 1px solid #fff;
+}
+
+nav ul li:first-of-type {
+	border-top: 1px solid #fff;
+}
+nav ul li a {
+	text-decoration: none;
+	color: #fff;
+}
+
+nav ul li a:hover {
+	background-color: #fff;
+	color: #000;
+}
+
+header {
+	position: relative;
+	padding: 40px 15px;
+	text-align: center;
+	background-color: #000;
+	color: #fff;
+}
+
+header h1 {
+	margin: 0;
+}
+
+header p {
+	margin: 30px 0;
+}
+
+button,
+input[type="submit"] {
+	background-color: #000;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: transform 0.3s ease;
+}

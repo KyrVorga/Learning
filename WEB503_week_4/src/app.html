@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" herf="app.css">
+    <title>ToDo List</title>
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo right">ToDo List</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <form name="todo-list" name="title" placeholder="Add Task">
+            <input type="text" name="title" placeholder="Add Task">
+            <button class="waves-effect waves-light btn">Add</button>
+        </form>
+
+        <ul class="collection" id="todo-list">
+            <li class="collection-item">
+                <div>
+                    <span>Buying Food</span>
+                    <i class="material-icons secondary-content">delete</i>
+                    <a href="#model" class="modal-trigger secondary-content">
+                        <i class="material-icons">edit</i>
+                    </a>
+                </div>
+            </li>
+        </ul>
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <input type="text" name="newtitle" placeholder="Update Task">
+            </div>
+            <div class="modal-footer">
+                <a href="#!" id="update" class="modal-close waves-effect waves-green btn-flat">Update</a>
+            </div>
+        </div>
+    </div>
+<script src="app.js"></script>
+</body>
+</html>
