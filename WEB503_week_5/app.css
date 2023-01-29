@@ -22,3 +22,7 @@ body {
 	background-color: aquamarine;
 	color: #202020;
 }
+
+.add:active {
+	transform: scale(0.98);
+}
