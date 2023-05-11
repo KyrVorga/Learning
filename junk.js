@@ -1,18 +1,25 @@
-// function makeDate(input) {
-// 	return new Date(input);
+// function calculate(input1, input2) {
+// 	let sum = getsum(input1, input2);
+// 	console.log(Math.pow(sum, 2));
 // }
 
-// const input = "";
-// console.log(makeDate(input));
-
-// console.log(new Date().toDateString());
-
-//   let date;
-
-if (1 == 2) {
-	let date = new Date();
-} else {
-	let date = new Date();
+function getsum(input1, input2) {
+	return input1 + input2;
 }
 
-console.log(date);
+const calculate = (input1, input2) => {
+	return Math.pow(getsum(input1, input2), 2);
+};
+
+console.log(calculate(6, 2));
+
+(input) => {
+   console 
+}
+
+
+// when a player first clicks a cell it must not be a mine.
+if playerSelectedMine is a mine
+    then make it not a mine
+else    
+    reveal the cell
