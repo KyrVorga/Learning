@@ -6,7 +6,7 @@ Date: 17/05/2022
 ------------------------------------------------------------- */
 
 //ANCHOR Code
-const readline = require("node:readline");
+const readline = require("node:readline/promises");
 const { stdin: input, stdout: output } = require("node:process");
 
 /*
@@ -67,7 +67,7 @@ const convertToMines = (grid) => {
   this function generates a grid that is
   n by n where n is equal to the size argument,
   it has a 20% chance of any cell being a mine.
-  */
+*/
 const generateGrid = (size) => {
 	let grid = [];
 	for (let i = 0; i < size; i++) {
@@ -85,11 +85,16 @@ const generateGrid = (size) => {
 };
 
 const formatGrid = (grid) => {
-	grid.forEach((row) => {
-		console.log("\n");
+	process.stdout.write("     ");
+	for (let i = 0; i < grid[0].length; i++) {
+		process.stdout.write(`${i}   `);
+	}
+
+	grid.forEach((row, j) => {
+		process.stdout.write(`\n${j} | `);
 		row.forEach((cell) => {
 			if (cell.status == "hidden") {
-				console.log("[ ] ");
+				process.stdout.write("[ ] ");
 			}
 		});
 	});
@@ -98,18 +103,32 @@ const formatGrid = (grid) => {
   this is the main function that invokes the
   other functions and provides their arguments.
   */
-const minesweeper = (arr) => {
-	grid = [...arr];
-	//convert(grid, 1, 9);
-	adjacentCells(grid);
-	convertToMines(grid);
 
+const getRow = async (max) => {
 	const rl = readline.createInterface({ input, output });
+	let userInput = await rl.question("What row?\n");
+	rl.close();
+	let parsedInput = Number(userInput);
 
-	rl.question("test\n", (answer) => {
-		console.log(answer);
-		rl.close();
-	});
+	console.log(typeof parsedInput);
+	console.log(parsedInput < 0);
+	console.log(parsedInput > max);
+
+	if (parsedInput < 0 || parsedInput > max) {
+		getRow(max);
+	}
+};
+
+const minesweeper = async (arr) => {
+	let grid = [...arr];
+
+	// adjacentCells(grid);
+	// convertToMines(grid);
+
+	// formatGrid(grid);
+	getRow(grid.length);
+
+	// game();
 };
 
 /* 
